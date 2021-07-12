@@ -1,11 +1,12 @@
+import React, { useState } from "react";
 import "./App.css";
 import Expenses from "./components/Expenses";
 import NewExpenses from "./components/new expenses/NewExpenses";
 
-const expenses = [
+const sample_expenses = [
   {
     id: "e1",
-    title: "Toilet Paper",
+    title: "News Paper",
     amount: 94.12,
     date: new Date(2020, 7, 14),
   },
@@ -24,16 +25,19 @@ const expenses = [
   },
 ];
 
-const addExpenseHandler = (expense) => {
-  console.log(" in App.js");
-  console.log(expense);
-};
-
 function App() {
+  const [expenseArr, setExpenseArr] = useState(sample_expenses);
+
+  const addExpenseHandler = (ex) => {
+    setExpenseArr((a) => {
+      return [ex, ...a];
+    });
+  };
+
   return (
     <div>
       <NewExpenses onAddExpense={addExpenseHandler} />
-      <Expenses expenses={expenses} />
+      <Expenses expenses={expenseArr} />
     </div>
   );
 }
