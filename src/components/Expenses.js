@@ -15,7 +15,14 @@ export default function Expenses(props) {
     <Card className="expenses">
       <ExpensesFilter selected={filteredYear} onFilteredYear={anyFun} />
       {props.expenses.map((a) => {
-        return <ExpensesList title={a.title} date={a.date} amt={a.amount} />;
+        return (
+          <ExpensesList
+            title={a.title}
+            date={a.date}
+            amt={a.amount}
+            key={Math.floor(Math.random() * 1000)}
+          />
+        );
       })}
     </Card>
   );
