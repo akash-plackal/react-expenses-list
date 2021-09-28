@@ -17,13 +17,14 @@ const DropDownContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   z-index: 999;
+  transition: 0.2s ease-in-out;
   opacity: ${({ IsOpen }) => (IsOpen ? "1" : "0")};
   top: ${({ IsOpen }) => (IsOpen ? "0" : "-100%")};
 `;
 
 const IconDiv = styled.div`
   position: absolute;
-  top: 1.5rem;
+  top: 1.1rem;
   right: 1.5rem;
 `;
 const CloseIcon = styled(FaTimes)`
